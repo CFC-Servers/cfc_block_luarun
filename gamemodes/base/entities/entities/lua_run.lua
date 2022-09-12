@@ -6,6 +6,9 @@ ENT.DisableDuplicator = true
 
 AccessorFunc( ENT, "m_bDefaultCode", "DefaultCode" )
 
+local ALLOWED_LUA, ALLOWED_MAPS = include( "cfc_block_luarun/config.lua" )
+local CURRENT_MAP_ALLOWED = table.HasValue( ALLOWED_MAPS, game.GetMap() )
+
 function ENT:Initialize()
 
 	-- If the entity has its first spawnflag set, run the code automatically
@@ -44,9 +47,7 @@ end
 
 function ENT:RunCode( activator, caller, code )
 
-	local whitelist = util.JSONToTable( file.Read( "cfc_map_luarun_whitelist.json", "DATA" ) )
-	
-	if not whitelist.allowedMaps[game.GetMap()] or not whitelist.allowedLua[code] then return end
+	if not CURRENT_MAP_ALLOWED or not table.HasValue( ALLOWED_LUA, util.MD5( code ) ) then return end
 
 	self:SetupGlobals( activator, caller )
 	RunString( code, "lua_run#" .. self:EntIndex() )
