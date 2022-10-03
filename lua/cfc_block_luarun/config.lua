@@ -27,7 +27,7 @@ local ALLOWED_LUA = {
 }
 
 local ALLOWED_MAPS = {
-	["gm_excess_island_night"] = true,
+	gm_excess_island_night = true,
 }
 
 return ALLOWED_LUA, ALLOWED_MAPS

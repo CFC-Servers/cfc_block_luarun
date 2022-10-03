@@ -11,7 +11,7 @@ AccessorFunc( ENT, "m_bDefaultCode", "DefaultCode" )
 local ALLOWED_LUA, ALLOWED_MAPS = include( "cfc_block_luarun/config.lua" )
 local CURRENT_MAP_ALLOWED = ALLOWED_MAPS[game.GetMap()]
 local LOGGER = Logger( "cfc block luarun" )
-local MD5 = util.MD5 -- Localized MD5 encoding function
+local MD5 = util.MD5
 
 function ENT:Initialize()
 	-- If the entity has its first spawnflag set, run the code automatically
@@ -47,12 +47,13 @@ function ENT:RunCode( activator, caller, code )
 		if SERVER then
 			LOGGER:warn( '<' .. hash .. '> "' .. code .. '"' )
 		end
+
 		return
 	end
 
 	self:SetupGlobals( activator, caller )
 	RunString( code, "lua_run#" .. self:EntIndex() )
-	--LOGGER:info( '<' .. hash .. '> "' .. code .. '"' )
+	LOGGER:debug( '<' .. hash .. '> "' .. code .. '"' )
 	self:KillGlobals()
 end
 
