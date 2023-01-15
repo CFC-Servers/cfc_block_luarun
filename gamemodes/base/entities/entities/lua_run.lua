@@ -10,7 +10,7 @@ AccessorFunc( ENT, "m_bDefaultCode", "DefaultCode" )
 
 local ALLOWED_LUA, ALLOWED_MAPS = include( "cfc_block_luarun/config.lua" )
 local CURRENT_MAP_ALLOWED = ALLOWED_MAPS[game.GetMap()]
-local LOGGER = Logger( "cfc block luarun" )
+local LOGGER = Logger( "CFC_BlockLuaRun" )
 local MD5 = util.MD5
 
 function ENT:Initialize()
