@@ -45,7 +45,7 @@ function ENT:RunCode( activator, caller, code )
     local hash = MD5( code )
     if not CURRENT_MAP_ALLOWED or not ALLOWED_LUA[hash] then
         if SERVER then
-            LOGGER:warn( '<' .. hash .. '> "' .. code .. '"' )
+            LOGGER:warn( game.GetMap() .. ' <' .. hash .. '> "' .. code .. '"' )
         end
 
         return
@@ -53,7 +53,7 @@ function ENT:RunCode( activator, caller, code )
 
     self:SetupGlobals( activator, caller )
     RunString( code, "lua_run#" .. self:EntIndex() )
-    LOGGER:debug( '<' .. hash .. '> "' .. code .. '"' )
+    LOGGER:debug( game.GetMap() .. ' <' .. hash .. '> "' .. code .. '"' )
     self:KillGlobals()
 end
 
