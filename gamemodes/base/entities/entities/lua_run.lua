@@ -56,6 +56,8 @@ function ENT:RunCode( activator, caller, code )
             end
         end
 
+        ErrorNoHalt( "[CFC_BlockLuaRun] Blocked " .. game.GetMap() .. ' <' .. hash .. '> "' .. code .. '"' )
+
         return
     end
 
