@@ -24,6 +24,9 @@ local ALLOWED_LUA = {
     ["7db1f3e9eb761fe485b0a4f7e6c2d23b"] = true, -- if Wire_CreateInputs then local cx=ents.FindByName('somebox')[1];function cx:Auth(ins) for i=1,math.min(ins:len(),6) do cx.In[2]=cx.In[2]+ins:lower():byte(i)*(26^i) end for i=0,math.min(ins:len(),6)-1 do cx.In[3]=cx.In[3]+(ins:upper():byte(ins:len()-i)-60)*(16^i) end if cx.In[1]^3%2134089901==1342177280 and cx.In[2]^2%2134089901==1929904128 and cx.In[3]^3%2134089901==943718400 then return true; else return false; end end end
     ["331ccbeabd5a035a7bccb0ddf7a27501"] = true, -- if Wire_CreateInputs then local cb=ents.FindByName('wiremain_203')[1];local d1=ents.FindByName('i2_silodoor')[1];local d2=ents.FindByName('i2_siloback')[1];cb.LightEdge=false;cb.Inputs=Wire_CreateInputs(cb,{'Toggle Door','Lock Back'});function cb:TriggerInput(iname,value) if(iname=='Lock Back') then if(value>0) then d2:Fire('Lock','',0) else d2:Fire('Unlock','',0) end else if (value>0) and not self.LightEdge then d1:Fire('Toggle','',0) end self.LightEdge=value>0 end end end
     ["6ed0feab7ba45c2b96615af64150db5a"] = true, -- if Wire_CreateInputs then local controlbox=ents.FindByName('wiremain_107')[1];controlbox.LightEdge=false;controlbox.Inputs=Wire_CreateInputs(controlbox,{'Door Lock'});function controlbox:TriggerInput(iname,value) if(iname=='Door Lock') then local door=ents.FindByName('ug_l2_door01')[1] if(value>0) then door:Fire('Lock','',0) else door:Fire('Unlock','',0) end end self.LightEdge=value>0 end end
+
+    -- gm_flatgrass_cubed
+    ["f56cc24a6963170ec8b1e9077401b0c2"] = true, -- local c = ents.FindByClass('player') for _,i in ipairs(c) do if (i:GetPos():WithinAABox(Vector(-16128,-16128,-16256),Vector(16128,16128,-16192))) then i:KillSilent() end end
 }
 
 local ALLOWED_MAPS = {
