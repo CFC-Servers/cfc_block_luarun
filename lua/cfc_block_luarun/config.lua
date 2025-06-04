@@ -31,6 +31,7 @@ local ALLOWED_LUA = {
 
 local ALLOWED_MAPS = {
     gm_excess_island_night = true,
+    gm_flatgrass_cubed = true
 }
 
 return ALLOWED_LUA, ALLOWED_MAPS
