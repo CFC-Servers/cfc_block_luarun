@@ -28,13 +28,15 @@ local ALLOWED_LUA = {
     -- gm_flatgrass_cubed
     ["f56cc24a6963170ec8b1e9077401b0c2"] = true, -- local c = ents.FindByClass('player') for _,i in ipairs(c) do if (i:GetPos():WithinAABox(Vector(-16128,-16128,-16256),Vector(16128,16128,-16192))) then i:KillSilent() end end
 
-    -- gm_bigcity_improved_lite
+    -- gm_bigcity_improved_lite and gm_construct
     ["102e1ff2c85876588af1cd1e0137cd41"] = true, -- MAP_HELINPC={npc_combinegunship=true,npc_helicopter=true,npc_combinedropship=true} hook.Add([[OnEntityCreated]],[[map_sethelinpcnode]],function(ent) if MAP_HELINPC[ent:GetClass()] then ent:Fire([[settrack]],[[helipathstart]],0) end end)
 }
 
 local ALLOWED_MAPS = {
     gm_excess_island_night = true,
-    gm_flatgrass_cubed = true
+    gm_flatgrass_cubed = true,
+    gm_bigcity_improved_lite = true,
+    gm_construct = true
 }
 
 return ALLOWED_LUA, ALLOWED_MAPS
