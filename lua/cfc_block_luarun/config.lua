@@ -59,6 +59,7 @@ local ALLOWED_MAPS = {
     ttt_groverhaus_remastered_a3b = true,
     rp_kowloon = true,
     ttt_diescraper = true,
+    gm_cartride = true, -- Cart Ride Into Male_07
 }
 
 local BLOCKED_MAPS = {
