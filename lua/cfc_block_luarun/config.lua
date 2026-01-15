@@ -30,13 +30,39 @@ local ALLOWED_LUA = {
 
     -- gm_bigcity_improved_lite and gm_construct
     ["102e1ff2c85876588af1cd1e0137cd41"] = true, -- MAP_HELINPC={npc_combinegunship=true,npc_helicopter=true,npc_combinedropship=true} hook.Add([[OnEntityCreated]],[[map_sethelinpcnode]],function(ent) if MAP_HELINPC[ent:GetClass()] then ent:Fire([[settrack]],[[helipathstart]],0) end end)
+
+    -- ttt_groverhaus_remastered_a3b
+    ["0672fcf4d90c05fcaeac8f4f9d28d6b2"] = true, -- for _, e in ipairs(ents.FindByName('garage_door_track_train1')) do e:SetLocalAngles(angle_zero) end
+
+    -- rp_kowloon
+    ["1db073490f11de38b6a070818aa6d322"] = true, -- include('foggy.lua') -- NOTE: This is for the fogman nextbot in this map
+
+    -- ttt_diescraper
+    ["6456e338729540cc7dab3c74cc158ad8"] = true, -- if os.date('%m')=='01'then local e=ents.Create('prop_physics')if IsValid(e)then e:SetModel('models/props_c17/oildrum001.mdl')e:SetPos(Vector(200,0,100))e:Spawn()end local panel1=ents.FindByName('panel1')[1]local panel2=ents.FindByName('panel2')[1]if IsValid(panel1)then panel1:Fire('Color','201 17 17')end if IsValid(panel2)then panel2:Fire('Color','230 136 0')end end
+    ["5c83953129ff4a7050969a49f2172c1a"] = true, -- if os.date('%m') == '02' then local valentinesTemplate = ents.FindByName('valentines_template')[1] if IsValid(valentinesTemplate) then valentinesTemplate:Fire('ForceSpawn') end local panel1 = ents.FindByName('panel1')[1] local panel2 = ents.FindByName('panel2')[1] if IsValid(panel1) then panel1:Fire('Color', '255 77 164')end if IsValid(panel2)then panel2:Fire('Color','172 40 184') end end
+    ["59cbd573d1d0f73d98bfc925a040a931"] = true, -- if os.date('%m')=='04'then local e=ents.Create('prop_physics')if IsValid(e)then e:SetModel('models/props_c17/oildrum001.mdl')e:SetPos(Vector(400,0,100))e:Spawn()end local panel1=ents.FindByName('panel1')[1]local panel2=ents.FindByName('panel2')[1]if IsValid(panel1)then panel1:Fire('Color','222 97 230')end if IsValid(panel2)then panel2:Fire('Color','61 175 196')end end
+    ["ff242e09919af4b05dc24bd1692c658a"] = true, -- if os.date('%m') == '09' then local oktoberfestTemplate = ents.FindByName('oktoberfest_template')[1] if IsValid(oktoberfestTemplate) then oktoberfestTemplate:Fire('ForceSpawn') end local panel1 = ents.FindByName('panel1')[1] local panel2 = ents.FindByName('panel2')[1] if IsValid(panel1) then panel1:Fire('Color', '0 125 212') end if IsValid(panel2) then panel2:Fire('Color', '255 255 255') end end
+    ["c330d11db9a1ef4b1f24b74fbdea580c"] = true, -- if os.date('%m')=='10'then local e=ents.Create('prop_physics')if IsValid(e)then e:SetModel('models/props_c17/oildrum001.mdl')e:SetPos(Vector(600,0,100))e:Spawn()end local panel1=ents.FindByName('panel1')[1]local panel2=ents.FindByName('panel2')[1]if IsValid(panel1)then panel1:Fire('Color','212 95 0')end if IsValid(panel2)then panel2:Fire('Color','157 54 195')end end
+    ["1f56b44c73a7cb3bc11a2fb7b4a5f632"] = true, -- if os.date('%m') == '12' then local christmas_door = ents.FindByName('christmas_door')[1] if IsValid(christmas_door) then christmas_door:Fire('close') end local panel1 = ents.FindByName('panel1')[1] local panel2 = ents.FindByName('panel2')[1] if IsValid(panel1) then panel1:Fire('Color', '201 17 17') end if IsValid(panel2) then panel2:Fire('Color', '42 162 18') end end
+}
+
+local BLOCKED_LUA = {
+    -- mu_smallotown_v2_snow
+    ["46f7ed4d09875e2c8c9e89eaa9c414a3"] = true, -- RunConsoleCommand('homicide_setmode', '1')
 }
 
 local ALLOWED_MAPS = {
     gm_excess_island_night = true,
     gm_flatgrass_cubed = true,
     gm_bigcity_improved_lite = true,
-    gm_construct = true
+    gm_construct = true,
+    ttt_groverhaus_remastered_a3b = true,
+    rp_kowloon = true,
+    ttt_diescraper = true,
 }
 
-return ALLOWED_LUA, ALLOWED_MAPS
+local BLOCKED_MAPS = {
+    -- mu_smallotown_v2_snow = true,
+}
+
+return ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS
