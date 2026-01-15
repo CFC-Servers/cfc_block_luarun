@@ -44,6 +44,22 @@ local ALLOWED_LUA = {
     ["ff242e09919af4b05dc24bd1692c658a"] = true, -- if os.date('%m') == '09' then local oktoberfestTemplate = ents.FindByName('oktoberfest_template')[1] if IsValid(oktoberfestTemplate) then oktoberfestTemplate:Fire('ForceSpawn') end local panel1 = ents.FindByName('panel1')[1] local panel2 = ents.FindByName('panel2')[1] if IsValid(panel1) then panel1:Fire('Color', '0 125 212') end if IsValid(panel2) then panel2:Fire('Color', '255 255 255') end end
     ["c330d11db9a1ef4b1f24b74fbdea580c"] = true, -- if os.date('%m')=='10'then local e=ents.Create('prop_physics')if IsValid(e)then e:SetModel('models/props_c17/oildrum001.mdl')e:SetPos(Vector(600,0,100))e:Spawn()end local panel1=ents.FindByName('panel1')[1]local panel2=ents.FindByName('panel2')[1]if IsValid(panel1)then panel1:Fire('Color','212 95 0')end if IsValid(panel2)then panel2:Fire('Color','157 54 195')end end
     ["1f56b44c73a7cb3bc11a2fb7b4a5f632"] = true, -- if os.date('%m') == '12' then local christmas_door = ents.FindByName('christmas_door')[1] if IsValid(christmas_door) then christmas_door:Fire('close') end local panel1 = ents.FindByName('panel1')[1] local panel2 = ents.FindByName('panel2')[1] if IsValid(panel1) then panel1:Fire('Color', '201 17 17') end if IsValid(panel2) then panel2:Fire('Color', '42 162 18') end end
+
+    -- gm_cartride
+    ["a50f12fc61c64bcf06aa8b00cbd82ec5"] = true, -- include('gm_cartride_paintremover.lua')
+    ["cc79472805b95ed134037e8d4a18160f"] = true, -- include('gm_cartride_paintremover.lua')
+    ["a50f12fc61c64bcf06aa8b00cbd82ec5"] = true, -- include('gm_cartride_quiz.lua')
+    ["f52e32bc8a8e47c967c4c006ee137201"] = true, -- include('gm_cartride_obbydata.lua')
+    ["a50f12fc61c64bcf06aa8b00cbd82ec5"] = true, -- include('gm_cartride_quiz.lua')
+    ["178c08bbc858cbf03a31f75afe3a3fa5"] = true, -- hook.Run('gm_cartride_DriverChairPlayerOn')
+    ["1ffc0f89fc88a094e9f26f05249c4ac5"] = true, -- hook.Run('gm_cartride_DriverChairPlayerOff')
+    ["221d4c24bd674d7f19f0ad2ea3f12619"] = true, -- include('gm_cartride_obbyteleport.lua');
+    ["b1ca559332ac7170fb25bad7f7333cbb"] = true, -- CHECKPOINT_ID = 1;  include('gm_cartride_obbytrigger.lua');
+    ["98f53898837492967bed94c068894340"] = true, -- CHECKPOINT_ID = 2;  include('gm_cartride_obbytrigger.lua');
+    ["a5dcb4fe7eac949a21587a12cfe067d8"] = true, -- CHECKPOINT_ID = 3;  include('gm_cartride_obbytrigger.lua');
+    ["1aaf5f0e6adf4762308dbe034bfe6d5e"] = true, -- include('gm_cartride_quiztext.lua')
+    ["bb816f5f15aa2a07c9951046c03b07e6"] = true, -- CHECKPOINT_ID = 4;  include('gm_cartride_obbytrigger.lua');
+    ["e89399cff3fa0e85faea19965ae3048d"] = true, -- CHECKPOINT_ID = 5;  include('gm_cartride_obbytrigger.lua');
 }
 
 local BLOCKED_LUA = {
