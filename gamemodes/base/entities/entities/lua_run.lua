@@ -12,8 +12,9 @@ ENT.DisableDuplicator = true
 
 AccessorFunc( ENT, "m_bDefaultCode", "DefaultCode" )
 
-local ALLOWED_LUA, ALLOWED_MAPS = include( "cfc_block_luarun/config.lua" )
+local ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS = include( "cfc_block_luarun/config.lua" )
 local CURRENT_MAP_ALLOWED = ALLOWED_MAPS[game.GetMap()]
+local CURRENT_MAP_BLOCKED = BLOCKED_MAPS[game.GetMap()]
 local LOGGER = hasLogger and Logger( "CFC_BlockLuaRun" )
 local MD5 = util.MD5
 
@@ -47,16 +48,18 @@ end
 
 function ENT:RunCode( activator, caller, code )
     local hash = MD5( code )
+    if CURRENT_MAP_BLOCKED or BLOCKED_LUA[hash] then return end
+
     if not CURRENT_MAP_ALLOWED or not ALLOWED_LUA[hash] then
         if SERVER then
             if LOGGER then
-                LOGGER:warn( "Blocked " .. game.GetMap() .. ' ' .. hash .. ' "' .. code .. '"' )
+                LOGGER:warn( "Blocked " .. game.GetMap() .. " " .. hash .. " \"" .. code .. "\"" )
             else
-                print( "[CFC_BlockLuaRun] Blocked " .. game.GetMap() .. ' ' .. hash .. ' "' .. code .. '"' )
+                print( "[CFC_BlockLuaRun] Blocked " .. game.GetMap() .. " " .. hash .. " \"" .. code .. "\"" )
             end
         end
 
-        ErrorNoHaltWithStack( "[CFC_BlockLuaRun] Blocked " .. game.GetMap() .. ' ' .. hash .. ' "' .. code .. '"' )
+        ErrorNoHaltWithStack( "[CFC_BlockLuaRun] Blocked " .. game.GetMap() .. " " .. hash .. " \"" .. code .. "\"" )
 
         return
     end
@@ -64,7 +67,7 @@ function ENT:RunCode( activator, caller, code )
     self:SetupGlobals( activator, caller )
     RunString( code, "lua_run#" .. self:EntIndex() )
     if LOGGER then
-        LOGGER:debug( game.GetMap() .. ' <' .. hash .. '> "' .. code .. '"' )
+        LOGGER:debug( game.GetMap() .. " <" .. hash .. "> \"" .. code .. "\"" )
     end
     self:KillGlobals()
 end
