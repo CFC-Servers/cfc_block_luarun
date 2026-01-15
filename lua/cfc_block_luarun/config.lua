@@ -62,7 +62,7 @@ local ALLOWED_MAPS = {
 }
 
 local BLOCKED_MAPS = {
-    -- mu_smallotown_v2_snow = true,
+    mu_smallotown_v2_snow = true,
 }
 
 return ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS
