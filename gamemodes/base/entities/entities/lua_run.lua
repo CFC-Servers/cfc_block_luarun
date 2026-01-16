@@ -51,15 +51,16 @@ function ENT:RunCode( activator, caller, code )
     if CURRENT_MAP_BLOCKED or BLOCKED_LUA[hash] then return end
 
     if not CURRENT_MAP_ALLOWED or not ALLOWED_LUA[hash] then
+        local easilyCopyableString = "Blocked " .. game.GetMap() .. " [\"" .. hash .. "\"] = true, -- " .. code
         if SERVER then
             if LOGGER then
-                LOGGER:warn( "Blocked " .. game.GetMap() .. " " .. hash .. " \"" .. code .. "\"" )
+                LOGGER:warn( easilyCopyableString )
             else
-                print( "[CFC_BlockLuaRun] Blocked " .. game.GetMap() .. " " .. hash .. " \"" .. code .. "\"" )
+                print( "[CFC_BlockLuaRun] " .. easilyCopyableString )
             end
         end
 
-        ErrorNoHaltWithStack( "[CFC_BlockLuaRun] Blocked " .. game.GetMap() .. " " .. hash .. " \"" .. code .. "\"" )
+        ErrorNoHaltWithStack( easilyCopyableString )
 
         return
     end
