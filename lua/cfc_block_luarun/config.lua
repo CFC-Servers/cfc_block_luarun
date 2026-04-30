@@ -64,11 +64,17 @@ local ALLOWED_LUA = {
     -- gm_pantheon
     ["70f78527c12a2d6453981ca45a7f0699"] = true, -- local c = ents.FindByClass('player') for _,i in ipairs(c) do if (i:GetPos():WithinAABox(Vector(11776,-10725,-16000),Vector(-11264,11776,-16256))) then i:KillSilent() end end
     ["102e1ff2c85876588af1cd1e0137cd41"] = true, -- MAP_HELINPC={npc_combinegunship=true,npc_helicopter=true,npc_combinedropship=true} hook.Add([[OnEntityCreated]],[[map_sethelinpcnode]],function(ent) if MAP_HELINPC[ent:GetClass()] then ent:Fire([[settrack]],[[helipathstart]],0) end end)
+
+    -- zgr_school_snbp_v2_void
+    ["957cba8e44d8f97e3d480385b4612e36"] = true, -- include('locust.lua') -- NOTE: This is for the locust nextbot in this map
 }
 
 local BLOCKED_LUA = {
     -- mu_smallotown_v2_snow
     ["46f7ed4d09875e2c8c9e89eaa9c414a3"] = true, -- RunConsoleCommand('homicide_setmode', '1')
+
+    -- gm_snowyisolation_v3
+    ["8cad1358556073d8ff22ef7f0dd34bcb"] = true, -- for i, ply in pairs(player.GetAll()) do if (ply:IsValid()) then hook.Remove( 'PlayerSpawn', 'ChangeFrictionOnSpawn' ) end end
 }
 
 local ALLOWED_MAPS = {
@@ -80,10 +86,12 @@ local ALLOWED_MAPS = {
     rp_kowloon = true,
     ttt_diescraper = true,
     gm_cartride = true, -- Cart Ride Into Male_07
+    zgr_school_snbp_v2_void = true,
 }
 
 local BLOCKED_MAPS = {
     mu_smallotown_v2_snow = true,
+    gm_snowyisolation_v3 = true,
 }
 
 return ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS
