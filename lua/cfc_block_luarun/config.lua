@@ -1,3 +1,7 @@
+local ALWAYS_ALLOWED_LUA = {
+    ["102e1ff2c85876588af1cd1e0137cd41"] = true, -- MAP_HELINPC={npc_combinegunship=true,npc_helicopter=true,npc_combinedropship=true} hook.Add([[OnEntityCreated]],[[map_sethelinpcnode]],function(ent) if MAP_HELINPC[ent:GetClass()] then ent:Fire([[settrack]],[[helipathstart]],0) end end)
+}
+
 local ALLOWED_LUA = {
     -- gm_excess_island_night
     ["f3a9e5157f25d221d2b3387f55cc22c6"] = true, -- if Wire_CreateInputs then local controlbox=ents.FindByName('wiremain_309')[1];local door=ents.FindByName('i3_sp_door5')[1];controlbox.LightEdge=false;controlbox.Inputs=Wire_CreateInputs(controlbox,{'Door - Control','Door - Toggle'});function controlbox:TriggerInput(iname,value) if(iname=='Door - Control') then if(value>0) then door:Fire('Open','',0) else door:Fire('Close','',0) end else if (value>0) and not self.LightEdge then door:Fire('Toggle','',0) end self.LightEdge=value>0 end end end
@@ -27,9 +31,6 @@ local ALLOWED_LUA = {
 
     -- gm_flatgrass_cubed
     ["f56cc24a6963170ec8b1e9077401b0c2"] = true, -- local c = ents.FindByClass('player') for _,i in ipairs(c) do if (i:GetPos():WithinAABox(Vector(-16128,-16128,-16256),Vector(16128,16128,-16192))) then i:KillSilent() end end
-
-    -- gm_bigcity_improved_lite and gm_construct
-    ["102e1ff2c85876588af1cd1e0137cd41"] = true, -- MAP_HELINPC={npc_combinegunship=true,npc_helicopter=true,npc_combinedropship=true} hook.Add([[OnEntityCreated]],[[map_sethelinpcnode]],function(ent) if MAP_HELINPC[ent:GetClass()] then ent:Fire([[settrack]],[[helipathstart]],0) end end)
 
     -- ttt_groverhaus_remastered_a3b
     ["0672fcf4d90c05fcaeac8f4f9d28d6b2"] = true, -- for _, e in ipairs(ents.FindByName('garage_door_track_train1')) do e:SetLocalAngles(angle_zero) end
@@ -63,7 +64,6 @@ local ALLOWED_LUA = {
 
     -- gm_pantheon
     ["70f78527c12a2d6453981ca45a7f0699"] = true, -- local c = ents.FindByClass('player') for _,i in ipairs(c) do if (i:GetPos():WithinAABox(Vector(11776,-10725,-16000),Vector(-11264,11776,-16256))) then i:KillSilent() end end
-    ["102e1ff2c85876588af1cd1e0137cd41"] = true, -- MAP_HELINPC={npc_combinegunship=true,npc_helicopter=true,npc_combinedropship=true} hook.Add([[OnEntityCreated]],[[map_sethelinpcnode]],function(ent) if MAP_HELINPC[ent:GetClass()] then ent:Fire([[settrack]],[[helipathstart]],0) end end)
 
     -- zgr_school_snbp_v2_void
     ["957cba8e44d8f97e3d480385b4612e36"] = true, -- include('locust.lua') -- NOTE: This is for the locust nextbot in this map
@@ -94,4 +94,4 @@ local BLOCKED_MAPS = {
     gm_snowyisolation_v3 = true,
 }
 
-return ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS
+return ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS, ALWAYS_ALLOWED_LUA
