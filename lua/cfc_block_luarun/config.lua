@@ -67,6 +67,9 @@ local ALLOWED_LUA = {
 
     -- zgr_school_snbp_v2_void
     ["957cba8e44d8f97e3d480385b4612e36"] = true, -- include('locust.lua') -- NOTE: This is for the locust nextbot in this map
+
+    -- rp_riverden_zarp_v3_hw
+    ["1d1c7820903f1f9fa820f0f1fa64aa13"] = true, -- hook.Run('OnExitBackrooms', ACTIVATOR)
 }
 
 local BLOCKED_LUA = {
@@ -87,6 +90,7 @@ local ALLOWED_MAPS = {
     ttt_diescraper = true,
     gm_cartride = true, -- Cart Ride Into Male_07
     zgr_school_snbp_v2_void = true,
+    rp_riverden_zarp_v3_hw = true,
 }
 
 local BLOCKED_MAPS = {
