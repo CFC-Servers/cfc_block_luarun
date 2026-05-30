@@ -75,6 +75,9 @@ local BLOCKED_LUA = {
 
     -- gm_snowyisolation_v3
     ["8cad1358556073d8ff22ef7f0dd34bcb"] = true, -- for i, ply in pairs(player.GetAll()) do if (ply:IsValid()) then hook.Remove( 'PlayerSpawn', 'ChangeFrictionOnSpawn' ) end end
+
+    -- ttt_salt_desert
+    ["5323bc5a9467d760a5689ce47fcf07d3"] = true, -- GAMEMODE:EndRound()
 }
 
 local ALLOWED_MAPS = {
@@ -92,6 +95,7 @@ local ALLOWED_MAPS = {
 local BLOCKED_MAPS = {
     mu_smallotown_v2_snow = true,
     gm_snowyisolation_v3 = true,
+    ttt_salt_desert = true,
 }
 
 return ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS, ALWAYS_ALLOWED_LUA
