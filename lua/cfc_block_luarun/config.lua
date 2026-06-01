@@ -32,7 +32,7 @@ local ALLOWED_LUA = {
     -- gm_flatgrass_cubed
     ["f56cc24a6963170ec8b1e9077401b0c2"] = true, -- local c = ents.FindByClass('player') for _,i in ipairs(c) do if (i:GetPos():WithinAABox(Vector(-16128,-16128,-16256),Vector(16128,16128,-16192))) then i:KillSilent() end end
 
-    -- ttt_groverhaus_remastered_a3b
+    -- ttt_groverhaus_remastered_a4
     ["0672fcf4d90c05fcaeac8f4f9d28d6b2"] = true, -- for _, e in ipairs(ents.FindByName('garage_door_track_train1')) do e:SetLocalAngles(angle_zero) end
 
     -- rp_kowloon
@@ -88,7 +88,7 @@ local ALLOWED_MAPS = {
     gm_flatgrass_cubed = true,
     gm_bigcity_improved_lite = true,
     gm_construct = true,
-    ttt_groverhaus_remastered_a3b = true,
+    ttt_groverhaus_remastered_a4 = true,
     rp_kowloon = true,
     ttt_diescraper = true,
     gm_cartride = true, -- Cart Ride Into Male_07
