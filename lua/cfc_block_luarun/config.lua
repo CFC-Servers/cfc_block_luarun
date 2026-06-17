@@ -70,6 +70,12 @@ local ALLOWED_LUA = {
 
     -- rp_riverden_zarp_v3_hw
     ["1d1c7820903f1f9fa820f0f1fa64aa13"] = true, -- hook.Run('OnExitBackrooms', ACTIVATOR)
+
+    -- gm_vyten
+    ["458aa2dcd07811cbb63d2a4a1b544460"] = true, -- include('server/vyten.lua') -- NOTE: Triggered by the buttons controlling snowfall
+
+    -- rp_construct_b5
+    ["3945c58ca4fdd3a25b15f334c158852a"] = true, -- if ( TRIGGER_PLAYER ) then TRIGGER_PLAYER:SendHint( 'ColorRoom', 0 ) else Msg( 'No Player!!?/n' ) end
 }
 
 local BLOCKED_LUA = {
@@ -94,6 +100,8 @@ local ALLOWED_MAPS = {
     gm_cartride = true, -- Cart Ride Into Male_07
     zgr_school_snbp_v2_void = true,
     rp_riverden_zarp_v3_hw = true,
+    gm_vyten = true,
+    rp_construct_b5 = true,
 }
 
 local BLOCKED_MAPS = {
