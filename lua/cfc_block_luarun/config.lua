@@ -87,6 +87,9 @@ local BLOCKED_LUA = {
 
     -- ttt_salt_desert
     ["5323bc5a9467d760a5689ce47fcf07d3"] = true, -- GAMEMODE:EndRound()
+
+    -- gm_eliden_hmcd
+    ["ed579968e79b2394d19e7908d3cae683"] = true, -- hook.Add('EntityTakeDamage', 'downdmg', function( ply, dmginfo ) if ply:IsPlayer() and ply:SteamID64()=='76561198092827414' then dmginfo:ScaleDamage( 2 ) end end)
 }
 
 local ALLOWED_MAPS = {
