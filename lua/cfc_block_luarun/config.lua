@@ -76,6 +76,17 @@ local ALLOWED_LUA = {
 
     -- rp_construct_b5
     ["3945c58ca4fdd3a25b15f334c158852a"] = true, -- if ( TRIGGER_PLAYER ) then TRIGGER_PLAYER:SendHint( 'ColorRoom', 0 ) else Msg( 'No Player!!?/n' ) end
+
+    -- gm_middlebridge
+    ["dba0e4cda9b145612c1bea60bd36bad2"] = true, -- include('server/acfmap.lua') -- NOTE: This controls the use of the admin room door
+    ["e3823ab72c1adc835a9ee8e790bdb726"] = true, -- include('server/button1.lua') -- NOTE: All of the following strings control the use of the admin room buttons
+    ["5ba4f15d78f96693ca3172c390fb49e7"] = true, -- include('server/button2.lua')
+    ["c255d15e330b62bd2293e40096809d5e"] = true, -- include('server/button3.lua')
+    ["e4ed11ff58b694e9fe724409579e8d02"] = true, -- include('server/button4.lua')
+    ["efff1af651d69011b22eb30e0cc22045"] = true, -- include('server/button5_enable.lua')
+    ["3fcdab14dcc7485866ee136f5cc26bd4"] = true, -- include('server/button5_disable.lua')
+    ["2dbc863e8715d3f2ba354d5bc7fbb767"] = true, -- include('server/button6_enable.lua')
+    ["5cc295eda53f3ed7d24568240c2dcf49"] = true, -- include('server/button6_disable.lua')
 }
 
 local BLOCKED_LUA = {
@@ -105,6 +116,7 @@ local ALLOWED_MAPS = {
     rp_riverden_zarp_v3_hw = true,
     gm_vyten = true,
     rp_construct_b5 = true,
+    gm_middlebridge = true,
 }
 
 local BLOCKED_MAPS = {
