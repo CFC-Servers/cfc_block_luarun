@@ -101,6 +101,10 @@ local BLOCKED_LUA = {
 
     -- gm_eliden_hmcd
     ["ed579968e79b2394d19e7908d3cae683"] = true, -- hook.Add('EntityTakeDamage', 'downdmg', function( ply, dmginfo ) if ply:IsPlayer() and ply:SteamID64()=='76561198092827414' then dmginfo:ScaleDamage( 2 ) end end)
+
+    -- gm_bor
+    ["63478a2c476b2a494584e9b3be3f3cdf"] = true, -- RunConsoleCommand('r_radiosity', 2)
+    ["5aba5ec1a822a70b427cc0ce880474b5"] = true, -- hook.Add( [[PlayerInitialSpawn]], [[InitMapSettings]], function(ply) ply:ConCommand([[gmod_mcore_test 1]]) ply:ConCommand([[r_radiosity 2]]) ply:ConCommand([[mat_colorcorrection 1]]) end)
 }
 
 local ALLOWED_MAPS = {
@@ -123,6 +127,7 @@ local BLOCKED_MAPS = {
     mu_smallotown_v2_snow = true,
     gm_snowyisolation_v3 = true,
     ttt_salt_desert = true,
+    gm_bor = true,
 }
 
 return ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS, ALWAYS_ALLOWED_LUA
