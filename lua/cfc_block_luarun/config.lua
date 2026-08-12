@@ -87,6 +87,9 @@ local ALLOWED_LUA = {
     ["3fcdab14dcc7485866ee136f5cc26bd4"] = true, -- include('server/button5_disable.lua')
     ["2dbc863e8715d3f2ba354d5bc7fbb767"] = true, -- include('server/button6_enable.lua')
     ["5cc295eda53f3ed7d24568240c2dcf49"] = true, -- include('server/button6_disable.lua')
+
+    -- zgr_k9
+    ["c793c07f178837e196b6e0ea6f89f980"] = true, -- include('bon.lua') -- NOTE: This is for the Bon nextbot in this map
 }
 
 local BLOCKED_LUA = {
@@ -121,6 +124,7 @@ local ALLOWED_MAPS = {
     gm_vyten = true,
     rp_construct_b5 = true,
     gm_middlebridge = true,
+    zgr_k9 = true,
 }
 
 local BLOCKED_MAPS = {
