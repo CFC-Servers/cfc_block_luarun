@@ -93,6 +93,9 @@ local ALLOWED_LUA = {
 }
 
 local BLOCKED_LUA = {
+    -- gm_city_of_silence
+    ["a084ee808728ff98ce2ae11022b10e9c"] = true, -- RunConsoleCommand('cl_detaildist', 2000);RunConsoleCommand('cl_detailfade', 50);
+
     -- mu_smallotown_v2_snow
     ["46f7ed4d09875e2c8c9e89eaa9c414a3"] = true, -- RunConsoleCommand('homicide_setmode', '1')
 
