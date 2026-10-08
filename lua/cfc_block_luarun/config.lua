@@ -96,6 +96,10 @@ local BLOCKED_LUA = {
     -- gm_city_of_silence
     ["a084ee808728ff98ce2ae11022b10e9c"] = true, -- RunConsoleCommand('cl_detaildist', 2000);RunConsoleCommand('cl_detailfade', 50);
 
+    -- gm_atomic_regen
+    ["cf56c572e0470ed227a02e68c7789ad4"] = true, -- local x,y,c,w,B,d,b,p,t,u,C=IsValid,0,0,ipairs,ents.FindByName hook.Add('Think','_g',function()y=CurTime()if c<y then C=1 c=y+4 u=B('gpt_*')for k,a in w(B('_h'))do d=9999 b=a:GetEnemy()if x(b)then for k,v in w(u)do t=v:GetPos():Distance(b:GetPos())if t<d then d=t p=v C=k end end else p=u[math.random(1,#u)]end if x(p)then a:Fire('SetTrack',p:GetName(),0)u[C]=nil end end end end)
+    ["5d44e7b02116eef448d753f7bb032d14"] = true, -- local m,h={npc_combinegunship=1,npc_helicopter=1},hook.Add h('OnEntityCreated','_g',function(e)if m[e:GetClass()] then e:SetName('_h')end end)
+
     -- mu_smallotown_v2_snow
     ["46f7ed4d09875e2c8c9e89eaa9c414a3"] = true, -- RunConsoleCommand('homicide_setmode', '1')
 
