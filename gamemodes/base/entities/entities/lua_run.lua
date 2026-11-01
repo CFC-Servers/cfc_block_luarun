@@ -12,9 +12,10 @@ ENT.DisableDuplicator = true
 
 AccessorFunc( ENT, "m_bDefaultCode", "DefaultCode" )
 
-local ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS, ALWAYS_ALLOWED_LUA = include( "cfc_block_luarun/config.lua" )
+local ALLOWED_LUA, BLOCKED_LUA, ALLOWED_MAPS, BLOCKED_MAPS, ALWAYS_ALLOWED_LUA, ALLOW_ALL_LUA_MAPS = include( "cfc_block_luarun/config.lua" )
 local CURRENT_MAP_ALLOWED = ALLOWED_MAPS[game.GetMap()]
 local CURRENT_MAP_BLOCKED = BLOCKED_MAPS[game.GetMap()]
+local CURRENT_MAP_ALLOW_ALL = ALLOW_ALL_LUA_MAPS[game.GetMap()]
 local LOGGER = hasLogger and Logger( "CFC_BlockLuaRun" )
 local MD5 = util.MD5
 
@@ -50,7 +51,7 @@ function ENT:RunCode( activator, caller, code )
     local hash = MD5( code )
     if CURRENT_MAP_BLOCKED or BLOCKED_LUA[hash] then return end
 
-    if not ALWAYS_ALLOWED_LUA[hash] and ( not CURRENT_MAP_ALLOWED or not ALLOWED_LUA[hash] ) then
+    if not CURRENT_MAP_ALLOW_ALL and not ALWAYS_ALLOWED_LUA[hash] and ( not CURRENT_MAP_ALLOWED or not ALLOWED_LUA[hash] ) then
         local easilyCopyableString = "Blocked " .. game.GetMap() .. " [\"" .. hash .. "\"] = true, -- " .. code
         if SERVER then
             if LOGGER then
