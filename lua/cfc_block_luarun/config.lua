@@ -1,7 +1,9 @@
+-- MD5 hashes of code allowed on any map, even those not in ALLOWED_MAPS
 local ALWAYS_ALLOWED_LUA = {
     ["102e1ff2c85876588af1cd1e0137cd41"] = true, -- MAP_HELINPC={npc_combinegunship=true,npc_helicopter=true,npc_combinedropship=true} hook.Add([[OnEntityCreated]],[[map_sethelinpcnode]],function(ent) if MAP_HELINPC[ent:GetClass()] then ent:Fire([[settrack]],[[helipathstart]],0) end end)
 }
 
+-- MD5 hashes of code allowed to run, only on maps in ALLOWED_MAPS
 local ALLOWED_LUA = {
     -- gm_excess_island_night
     ["f3a9e5157f25d221d2b3387f55cc22c6"] = true, -- if Wire_CreateInputs then local controlbox=ents.FindByName('wiremain_309')[1];local door=ents.FindByName('i3_sp_door5')[1];controlbox.LightEdge=false;controlbox.Inputs=Wire_CreateInputs(controlbox,{'Door - Control','Door - Toggle'});function controlbox:TriggerInput(iname,value) if(iname=='Door - Control') then if(value>0) then door:Fire('Open','',0) else door:Fire('Close','',0) end else if (value>0) and not self.LightEdge then door:Fire('Toggle','',0) end self.LightEdge=value>0 end end end
@@ -92,6 +94,7 @@ local ALLOWED_LUA = {
     ["c793c07f178837e196b6e0ea6f89f980"] = true, -- include('bon.lua') -- NOTE: This is for the Bon nextbot in this map
 }
 
+-- MD5 hashes of code that never runs, on any map
 local BLOCKED_LUA = {
     -- gm_city_of_silence
     ["a084ee808728ff98ce2ae11022b10e9c"] = true, -- RunConsoleCommand('cl_detaildist', 2000);RunConsoleCommand('cl_detailfade', 50);
@@ -117,6 +120,7 @@ local BLOCKED_LUA = {
     ["5aba5ec1a822a70b427cc0ce880474b5"] = true, -- hook.Add( [[PlayerInitialSpawn]], [[InitMapSettings]], function(ply) ply:ConCommand([[gmod_mcore_test 1]]) ply:ConCommand([[r_radiosity 2]]) ply:ConCommand([[mat_colorcorrection 1]]) end)
 }
 
+-- Maps where ALLOWED_LUA hashes are honored; other maps only run ALWAYS_ALLOWED_LUA
 local ALLOWED_MAPS = {
     gm_excess_island_night = true,
     gm_flatgrass_cubed = true,
@@ -135,6 +139,7 @@ local ALLOWED_MAPS = {
     gm_gmall_2 = true,
 }
 
+-- Maps where no lua_run code runs at all, checked before every other list
 local BLOCKED_MAPS = {
     mu_smallotown_v2_snow = true,
     gm_snowyisolation_v3 = true,
@@ -142,6 +147,7 @@ local BLOCKED_MAPS = {
     gm_bor = true,
 }
 
+-- Maps where all lua_run code runs without hash checks (BLOCKED_MAPS still wins)
 local ALLOW_ALL_LUA_MAPS = {
     gm_gmall_2 = true,
 }
