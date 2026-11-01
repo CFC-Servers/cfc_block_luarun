@@ -132,6 +132,7 @@ local ALLOWED_MAPS = {
     rp_construct_b5 = true,
     gm_middlebridge = true,
     zgr_k9 = true,
+    gm_gmall_2 = true,
 }
 
 local BLOCKED_MAPS = {
