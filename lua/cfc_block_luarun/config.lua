@@ -118,6 +118,9 @@ local BLOCKED_LUA = {
     -- gm_bor
     ["63478a2c476b2a494584e9b3be3f3cdf"] = true, -- RunConsoleCommand('r_radiosity', 2)
     ["5aba5ec1a822a70b427cc0ce880474b5"] = true, -- hook.Add( [[PlayerInitialSpawn]], [[InitMapSettings]], function(ply) ply:ConCommand([[gmod_mcore_test 1]]) ply:ConCommand([[r_radiosity 2]]) ply:ConCommand([[mat_colorcorrection 1]]) end)
+
+    -- rp_nycity 
+    ["6dee6cdba044c7ffd14d847e2e664288"] = true, -- RunConsoleCommand('say', '/y Looking for trouble, punk?')
 }
 
 -- Maps where ALLOWED_LUA hashes are honored; other maps only run ALWAYS_ALLOWED_LUA
